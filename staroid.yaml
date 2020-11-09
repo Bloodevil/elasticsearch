@@ -5,7 +5,7 @@ build:
   skaffold:
     file: skaffold.yaml
 ingress:
-  - serviceName: elasticsearchTCP
+  - serviceName: elasticsearchtcp
     port: 9300
   - serviceName: elasticsearch
     port: 9200
