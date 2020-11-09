@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: elasticsearch-deployment
+  name: elasticsearch
 spec:
   replicas: 1
   selector:
@@ -15,9 +15,9 @@ spec:
       containers:
       - name: elasticsearch
         image: elasticsearch
-        command: ["/bin/elasticsearch"]
+        command: ["elasticsearch"]
         securityContext:
-          runAsUser: 1000
+          runAsUser: 2000
 ---
 kind: Service
 apiVersion: v1
