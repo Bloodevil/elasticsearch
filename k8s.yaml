@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - name: elasticsearch
+        image: elasticsearch
+        command: ["/bin/elasticsearch"]
+        securityContext:
+          runAsUser: 1000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: elasticsearch
+spec:
+  ports:
+  - name: elasticsearchTCP
+    port: 9300
+  - name: elasticsearch
+    port: 9200
+  selector:
+    app: elasticsearch
