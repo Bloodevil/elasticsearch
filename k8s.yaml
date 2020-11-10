@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: elasticsearch
-        image: elasticsearch
+        image: elasticsearch/elasticsearch
         command: ["elasticsearch"]
         securityContext:
           runAsUser: 2000
